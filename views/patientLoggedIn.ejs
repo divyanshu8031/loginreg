@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+	<Title>     
+		Patient LoggedIn 
+	</Title>  
+    <style type=text/css>   
+		
+        header {  
+        background-color: hsl(234, 74%, 70%);  
+        position: fixed;  
+        left: 0;  
+        right: 0;  
+        top: 5px;  
+        height: 50px;  
+        display: flex;  
+        align-items: center;  
+        box-shadow: 0 0 25px 0 black;  
+        }  
+        header * {  
+        display: inline;  
+        }  
+        header li {  
+        margin: 20px;  
+        } 
+		#header {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		z-index: 10;
+		}
+		#content {
+			margin-top: 100px;
+			z-index:1;
+		} 
+        body {
+            width: 95%;
+            background:rgba(245, 156, 230, 0.2);
+        }
+        .charts {
+			border-width:3px;  
+            border-style:ridge;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-bottom:10px;
+            padding: 5px;
+		} 
+        </style>   
+</head>
+<body>
+    <header class="header" id="header">
+        <nav style="width: 100%;">
+
+            <ul>  
+                <li style="float:left; clear:left">  
+                     <h2 style="font-family: Lucida Console, Courier New, monospace;">EpiOne Patient Portal</h2>
+                </li>  
+                <li style="float:right; clear:right">  
+                    <form method="POST" action="/logout"> 
+                            <input type="submit" name="" value="Logout" style="font-size: 14px;">
+                     </form>
+                </li>
+            </ul>
+            
+        </nav>
+        
+    </header>
+	<div id="content">
+		<div id="diastole" class="charts" style="height: 300px; width: 100%;"></div>
+		<div id="systole" class="charts" style="height: 300px; width: 100%;"></div>
+		<div id="temperature" class="charts" style="height: 300px; width: 100%;"></div>
+		<div id="pulse_rate" class="charts" style="height: 300px; width: 100%;"></div>
+		<div id="spo2" class="charts" style="height: 300px; width: 100%;"></div>
+		<script src="https://code.highcharts.com/highcharts.js"></script>
+		<script src="https://code.highcharts.com/modules/exporting.js"></script>
+		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="https://code.highcharts.com/themes/high-contrast-dark.js"></script>
+		<script>
+			var diastole = JSON.parse('<%-diastole%>')
+			Highcharts.chart('diastole', {
+				chart: {
+					type: 'area',
+					zoomType: 'x',
+					panning: true,
+					panKey: 'shift'
+				},
+		
+				boost: {
+					useGPUTranslations: true
+				},
+		
+				title: {
+					text: 'Diastolic Blood pressure'
+				},
+		
+				subtitle: {
+					text: 'Showing data for last one month'
+				},
+				yAxis: [{
+					title: {
+						text: 'bpm'
+					}
+				}],
+				xAxis: [{
+					title: {
+						text: 'Time'
+					}
+				}],
+		
+				tooltip: {
+					valueDecimals: 2
+				},
+		
+				series: [{
+					showInLegend: false, 
+					data: diastole,
+                    color: 'rgba(103, 176, 240, 0.4)'
+				}]
+		
+			});
+			var systole = JSON.parse('<%-systole%>')
+			Highcharts.chart('systole', {
+
+				chart: {
+					type: 'area',
+					zoomType: 'x',
+					panning: true,
+					panKey: 'shift'
+				},
+
+				boost: {
+					useGPUTranslations: true
+				},
+
+				title: {
+					text: 'Systolic Blood pressure'
+				},
+
+				subtitle: {
+					text: 'Showing data for last one month'
+				},
+				yAxis: [{
+					title: {
+						text: 'bpm'
+					}
+				}],
+				xAxis: [{
+					title: {
+						text: 'Time'
+					}
+				}],
+
+				tooltip: {
+					valueDecimals: 2
+				},
+
+				series: [{
+					showInLegend: false, 
+					data: systole,
+                    color: 'rgba(103, 176, 240, 0.4)'
+				}]
+
+				});
+				var temp = JSON.parse('<%-temp%>')
+				Highcharts.chart('temperature', {
+
+				chart: {
+					type: 'area',
+					zoomType: 'x',
+					panning: true,
+					panKey: 'shift'
+				},
+
+				boost: {
+					useGPUTranslations: true
+				},
+
+				title: {
+					text: 'Body temperature'
+				},
+
+				subtitle: {
+					text: 'Showing data for last one month'
+				},
+				yAxis: [{
+					title: {
+						text: 'Temperature(F)'
+					}
+				}],
+				xAxis: [{
+					title: {
+						text: 'Time'
+					}
+				}],
+
+				tooltip: {
+					valueDecimals: 2
+				},
+
+				series: [{
+					showInLegend: false, 
+					data: temp,
+                    color: 'rgba(103, 176, 240, 0.4)'
+				}]
+
+				});
+				var pulse = JSON.parse('<%-pulse%>')
+				Highcharts.chart('pulse_rate', {
+
+				chart: {
+					type: 'area',
+					zoomType: 'x',
+					panning: true,
+					panKey: 'shift'
+				},
+
+				boost: {
+					useGPUTranslations: true
+				},
+
+				title: {
+					text: 'Pulse rate'
+				},
+
+				subtitle: {
+					text: 'Showing data for last one month'
+				},
+				yAxis: [{
+					title: {
+						text: 'bpm'
+					}
+				}],
+				xAxis: [{
+					title: {
+						text: 'Time'
+					}
+				}],
+
+				tooltip: {
+					valueDecimals: 2
+				},
+
+				series: [{
+					showInLegend: false, 
+					data: pulse,
+                    color: 'rgba(103, 176, 240, 0.4)'
+				}]
+
+				});
+				var spo2 = JSON.parse('<%-spo2%>')
+				Highcharts.chart('spo2', {
+
+				chart: {
+					type: 'area',
+					zoomType: 'x',
+					panning: true,
+					panKey: 'shift'
+				},
+
+				boost: {
+					useGPUTranslations: true
+				},
+
+				title: {
+					text: 'SpO2'
+				},
+
+				subtitle: {
+					text: 'Showing data for last one month'
+				},
+				yAxis: [{
+					title: {
+						text: '%'
+					}
+				}],
+				xAxis: [{
+					title: {
+						text: 'Time'
+					}
+				}],
+
+				tooltip: {
+					valueDecimals: 2
+				},
+
+				series: [{
+					showInLegend: false, 
+					data: spo2,
+                    color: 'rgba(103, 176, 240, 0.4)'
+				}]
+
+				});
+		</script>
+	</div>
+</body>
+</html>

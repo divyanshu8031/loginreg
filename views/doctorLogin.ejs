@@ -1,0 +1,606 @@
+<!doctype html>
+
+
+
+<html lang="en-us">
+
+    <head>
+
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+
+        <meta content="utf-8" http-equiv="encoding">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Doctor Login</title>
+        
+        <style>
+          @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: "Poppins", sans-serif;
+
+}
+
+::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+section
+
+{
+
+    position: relative;
+
+    min-height: 100vh;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+
+}
+
+section .container
+
+{
+
+    position: relative;
+
+    width: 750px;
+
+    height: 565px;
+
+    background: #ffffff;
+
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+
+    overflow-x: hidden;
+
+
+
+}
+
+section .container .user
+
+{
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+
+
+}
+
+section .container .user .imgBx 
+
+{
+
+    position: relative;
+
+    width: 50%;
+
+    height: 100%;
+
+    background: #4d66f3;
+
+    transition: 0.5s;
+
+}
+
+section .container .user .imgBx img
+
+{
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    color: black;
+
+}
+
+section .container .user .formBx
+
+{
+
+    position: relative;
+
+    width: 50%;
+
+    height: 100%;
+
+    background: #fff;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px;
+
+    transition: 0.5s;
+
+}
+
+section .container .user .formBx form h2
+
+{
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    margin-top: 30px;
+
+    color: #555;
+
+}
+
+section .container .user .formBx form h3
+
+{
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    color: #0D0D0D;
+
+}
+
+section .container .user .formBx form label
+
+{
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    margin-top: 30px;
+
+    margin-right: 10px;
+
+    color: #555;
+
+}
+
+section .container .user .formBx form option
+
+{
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    text-align: center;
+
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    margin-top: 30px;
+
+    margin-right: 10px;
+
+    color: #555;
+
+}
+
+section .container .user .formBx form input
+
+{
+
+    position: relative;
+
+    width: 100%;
+
+    padding: 10px;
+
+    background: #f5f5f5;
+
+    color: #333;
+
+    border: none;
+
+    outline: none;
+
+    box-shadow: none;
+
+    margin: 8px 0;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    font-weight: 300;
+
+}
+
+section .container .user .formBx form input[type="submit"]
+
+{
+
+    max-width: 100px;
+
+    background: #FFB6C1;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    transition: 0.5s;
+
+}
+.checkbox {
+    text-align: start;
+}
+
+section .container .user .formBx form .signup
+
+{
+
+    position: relative;
+
+    margin-top: 20px;
+
+    margin-bottom: 30px;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    color: #555;
+
+    text-transform: uppercase;
+
+    font-weight: 300;
+
+}
+
+section .container .user .formBx form .signup a
+
+{
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    color: #4d66f3;
+
+}
+
+section .container .signupBx
+
+{
+
+    pointer-events: none;
+
+}
+
+section .container.active .signupBx
+
+{
+
+    pointer-events: initial;
+
+}
+
+section .container .signupBx .formBx
+
+{
+
+    left: 100%;
+
+}
+
+section .container.active .signupBx .formBx
+
+{
+
+    left: 0;
+
+}
+
+section .container .signupBx .imgBx
+
+{
+
+    left: -100%;
+
+}
+
+section .container.active .signupBx .imgBx
+
+{
+
+    left: 0;
+
+}
+
+
+
+
+  
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert h4 {
+  margin-top: 0;
+  color: inherit;
+}
+
+.alert .alert-link {
+  font-weight: bold;
+}
+
+.alert > p,
+.alert > ul {
+  margin-bottom: 0;
+}
+
+.alert > p + p {
+  margin-top: 5px;
+}
+
+.alert-dismissable,
+.alert-dismissible {
+  padding-right: 35px;
+}
+
+.alert-dismissable .close,
+.alert-dismissible .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+
+.alert-success hr {
+  border-top-color: #c9e2b3;
+}
+
+.alert-success .alert-link {
+  color: #2b542c;
+}
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  color: #31708f;
+}
+
+.alert-info hr {
+  border-top-color: #a6e1ec;
+}
+
+.alert-info .alert-link {
+  color: #245269;
+}
+
+.alert-warning {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+}
+
+.alert-warning hr {
+  border-top-color: #f7e1b5;
+}
+
+.alert-warning .alert-link {
+  color: #66512c;
+}
+
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+}
+
+.alert-danger hr {
+  border-top-color: #e4b9c0;
+}
+
+.alert-danger .alert-link {
+  color: #843534;
+}
+  
+
+
+
+section .container .signinBx .formBx
+
+{
+
+    left: 0;
+
+}
+
+section .container.active .signinBx .formBx
+
+{
+
+    left: 100%;
+
+}
+
+section .container .signinBx .imgBx
+
+{
+
+    left: 0;
+
+}
+
+section .container.active .signinBx .imgBx
+
+{
+
+    left: -100%;
+
+}
+
+
+
+@media (max-width: 991px)
+
+{
+
+    section .container
+
+    {
+
+        max-width: 400px;
+
+    }
+
+    section .container .imgBx
+
+    {
+
+        display: none;
+
+    }
+
+    section .container .user .formBx
+
+    {
+
+        width: 100%;
+
+    }
+
+}
+
+</style>
+
+
+    </head>
+
+    <body>
+
+        <section>
+        <div>
+            
+            <div class="container">
+
+                <div class="user signinBx">
+
+                    <div class="imgBx"><img src="../public/doctor_signup.jpg"></div>
+
+                    <div class="formBx">
+
+                        <form method="POST" action="doctorLogin"> 
+                            <div>
+                                <% if(message.doctor_login_error){ %>
+                                    <div class="alert alert-danger">
+                                        <strong>Login Failed!</strong> <%=message.doctor_login_error%>
+                                    </div>
+                                <% } %>
+                            </div>
+                            <h2>Doctor Sign In</h2>
+
+                            <input id = "email"type="text" name="email" placeholder="Email Id" required>
+
+                            <input id = "password" type="password" name="password" placeholder="Password" required>
+                            
+                            <input type="submit" name="" value="Login">
+                            
+                            <!-- Add This -->
+                            <p class="signup">Don't have an account ? <a href="doctorSignup">Sign Up</a></p>
+                            <!-- Add This -->
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        </section>
+
+    </body>
+
+</html>
+
+
